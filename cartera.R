@@ -147,4 +147,4 @@ df_todos %>%
   theme(legend.position='none')+
   labs(x='',y='',title='Evolución activos',
        subtitle='Índice 28-may = 100')
-ggsave('evolucion.png',scale=5)
+ggsave('evolucion.jpg',scale=5)
