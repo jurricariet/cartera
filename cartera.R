@@ -133,7 +133,7 @@ df_todos <- bind_rows(df_bonos) %>%
 df_todos %>% 
   filter(fecha >= fecha_compra) %>% 
   ggplot(aes(fecha,y=indice_100,group=ticker,color=ticker))+
-  geom_dl(aes(label = ticker), method = list(dl.combine( "last.points")), cex = 0.8)+ 
+  ggrepel::geom_label_repel(data=df_todos %>% filter(fecha == max(fecha)),aes(label = ticker))+ 
   geom_line()+
   geom_point()+
   coord_cartesian(clip='off')+
@@ -147,4 +147,4 @@ df_todos %>%
   theme(legend.position='none')+
   labs(x='',y='',title='Evolución activos',
        subtitle='Índice 28-may = 100')
-ggsave('evolucion.png',scale=3)
+ggsave('evolucion.png',scale=5)
