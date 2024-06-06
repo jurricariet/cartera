@@ -129,10 +129,15 @@ df_todos %>%
   geom_dl(aes(label = ticker), method = list(dl.combine( "last.points")), cex = 0.8)+ 
   geom_line()+
   geom_point()+
+  coord_cartesian(clip='off')+
+  scale_x_date(breaks = seq.Date(as.Date('2024-05-28'),as.Date(max(df_todos$fecha))+days(3),by="1 day"),
+               date_breaks = "1 day",
+               date_labels = "%d %b",
+               expand=c(0,1))+
   geom_hline(yintercept=100,color='black')+
   ggthemes::scale_color_canva()+
   theme_minimal()+
   theme(legend.position='none')+
   labs(x='',y='',title='Evolución activos',
        subtitle='Índice 28-may = 100')
-ggsave('evolucion.png',scale=2)
+ggsave('evolucion.png',scale=3)
