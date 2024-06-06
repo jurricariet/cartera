@@ -13,7 +13,7 @@ df_bonos <- bonos %>%
 # CEDEARS desde el paquete yahoo finance
 # Buscar tickers en https://finance.yahoo.com
 
-ticker_acciones <- c('CVX.BA','INTC')
+ticker_acciones <- c('CVX.BA','INTC.BA')
 first_date <- as.Date('2024-01-01')
 last_date <- Sys.Date()
 
@@ -58,7 +58,7 @@ df_todos %>%
   labs(x='',y='',title='Evolución activos',
        subtitle='Índice 28-may = 100')
 
-
+ggsave('acciones_usa.png',scale=3)
 df_todos %>% 
   filter(fecha >= fecha_compra) %>% 
   ggplot(aes(fecha,y=vs_mep,group=ticker,color=ticker))+
@@ -114,14 +114,21 @@ intc.ba <- data.frame(
   select(fecha,precio,ticker)
 
 
+cartera <- df_todos %>% 
+  filter(ticker %in% c(ticker_acciones,ticker_bono)) %>%
+  mutate(precio = ifelse(ticker %in% ticker_bono,precio/10,precio)) %>% 
+  group_by(fecha) %>% 
+  summarise(precio = sum(precio)) %>% 
+  filter(fecha >= '2024-05-28' ) %>% 
+  mutate(ticker='Cartera')
+  
 df_todos <- bind_rows(df_bonos) %>% 
   bind_rows(df_mep) %>%  
   bind_rows(intc.ba) %>% 
   bind_rows(cvx.ba) %>% 
+  bind_rows(cartera) %>% 
   group_by(ticker) %>% 
-  mutate(indice_100 = 100*precio/precio[fecha==fecha_compra]) %>% 
-  group_by(fecha) %>% 
-  mutate(vs_mep = precio/precio[ticker == 'MEP'])
+  mutate(indice_100 = 100*precio/precio[fecha==fecha_compra])
 
 df_todos %>% 
   filter(fecha >= fecha_compra) %>% 
@@ -135,7 +142,7 @@ df_todos %>%
                date_labels = "%d %b",
                expand=c(0,1))+
   geom_hline(yintercept=100,color='black')+
-  ggthemes::scale_color_canva()+
+  ggthemes::scale_color_colorblind()+
   theme_minimal()+
   theme(legend.position='none')+
   labs(x='',y='',title='Evolución activos',
