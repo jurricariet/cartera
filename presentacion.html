@@ -4,7 +4,7 @@
     <title>presentacion.knit</title>
     <meta charset="utf-8" />
     <meta name="author" content="Juan Urricariet" />
-    <script src="presentacion_files/header-attrs-2.26/header-attrs.js"></script>
+    <script src="presentacion_files/header-attrs-2.27/header-attrs.js"></script>
     <script src="presentacion_files/xaringanExtra-progressBar-0.0.1/progress-bar.js"></script>
     <script src="presentacion_files/fabric-4.3.1/fabric.min.js"></script>
     <link href="presentacion_files/xaringanExtra-scribble-0.0.1/scribble.css" rel="stylesheet" />
@@ -14,6 +14,15 @@
     <script src="presentacion_files/tile-view-0.2.6/tile-view.js"></script>
     <script src="presentacion_files/xaringanExtra-webcam-0.0.1/webcam.js"></script>
     <script id="xaringanExtra-webcam-options" type="application/json">{"width":"200","height":"200","margin":"1em"}</script>
+    <script src="presentacion_files/htmlwidgets-1.6.2/htmlwidgets.js"></script>
+    <script src="presentacion_files/jquery-3.5.1/jquery.min.js"></script>
+    <link href="presentacion_files/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+    <script src="presentacion_files/datatables-binding-0.18/datatables.js"></script>
+    <link href="presentacion_files/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="presentacion_files/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+    <script src="presentacion_files/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+    <link href="presentacion_files/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+    <script src="presentacion_files/crosstalk-1.1.1/js/crosstalk.min.js"></script>
     <link rel="stylesheet" href="presentacion_theme.css" type="text/css" />
   </head>
   <body>
@@ -26,9 +35,23 @@ background-image: escudo_interior_blanco.png
 background-position: 95% 95%
 background-size: 20%
 
+&lt;style&gt;
+div.remark-slide-content {
+  padding: 1em; /*default is 1em 4em*/
+}
+.dataTables_wrapper {
+  font-size: .5em;
+}
+&lt;/style&gt;
 
-#### Instrumentos de renta fija y variable
+####  15 de junio de 2024
 
+# Instrumentos de renta fija y variable
+
+&lt;br&gt;
+&lt;br&gt;
+
+## Presentación cartera de inversión
 
 &lt;br&gt;
 &lt;br&gt;
@@ -38,8 +61,7 @@ background-size: 20%
 &lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
+
 
 
 
@@ -54,7 +76,7 @@ background-size: 20%
 }
 .xe__progress-bar {
   height: 0.25em;
-  background-color: #008E90FF;
+  background-color: #5E2D30FF;
   width: calc(var(--slide-current) / var(--slide-total) * 100%);
 }
 .remark-visible .xe__progress-bar {
@@ -72,7 +94,73 @@ background-size: 20%
 
 ---
 
-## Probandoo
+# Composición de la cartera al inicio
+
+-   INCT.BA: Intel Corporation (CEDEAR)
+-   CVX.BA: Chevron Corporation (CEDEAR)
+-   GD35: Bonos Rep. Arg. U$S Step Up V.09/07/35
+
+
+
+
+&lt;img src="presentacion_files/figure-html/unnamed-chunk-3-1.png" width="60%" height="60%" /&gt;
+
+
+---
+
+# Decisiones de compra
+
+-   GD35: paridades bonos
+-   INCT.BA: Análisis fundamental
+-   CVX.BA: Análisis técnico
+
+
+
+.tiny[
+<div class="datatables html-widget html-fill-item-overflow-hidden html-fill-item" id="htmlwidget-8af7b5cfcb05f2d95f24" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8af7b5cfcb05f2d95f24">{"x":{"filter":"none","data":[["1","2","3","4","5","6","7","8","9"],["NVDA","AVGO","AMD","QCOM","INTC","media","media podada","ganador","2da opción"],["NVIDIA Corp","Broadcom Inc.","Advanced Micro Devices Inc.","Qualcomm, Inc.","Intel Corp.",null,null,null,null],[2785.44,653.04,271.04,236.29,130.97,null,null,null,null],["65.17","52.23","244.95","28.45","32.05","84.57","49.81666667","QCOM","INTC"],["31.58","24.32","30.08","18.68","15.87","24.106","24.36","INTC","QCOM"],["1.4","3.46","7.39","2.52","0.8","3.114","2.46","INTC","NVDA"],["34.92","16.8","11.89","6.49","2.37","14.494","11.72666667","INTC","QCOM"],["63.88","9.28","4.83","9.67","1.24","17.78","7.926666667","INTC","AMD"],[88.6,55.04,44.91,17.06,6.15,42.352,39.00333333,null,null],["107%","12.08%","32.22%","59.11%","6.10%","43%","34%","NVDA","QCOM"],["31.22%","22.39%","59.11%","13.96%","73.96%","40%","38%","INTC","AMD"],["48.41%","2.37%","10.43%","-","-38.29%",null,null,"NVDA","AMD"],["46.53%","15.10%","33.16%","11.29%","39.98%",null,null,"NVDA","INTC"],["46.68%","11.57%","31.41%","11.93%","-4.59%",null,null,"NVDA","AMD"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>simbolo<\/th>\n      <th>nombre<\/th>\n      <th>Market.cap<\/th>\n      <th>P/E<\/th>\n      <th>Fwd.P/E<\/th>\n      <th>PEG<\/th>\n      <th>P/S<\/th>\n      <th>P/B<\/th>\n      <th>P/C<\/th>\n      <th>EPS.this.Y<\/th>\n      <th>EPS.next.Y<\/th>\n      <th>EPS.past.5.Y<\/th>\n      <th>EPS.next.5Y<\/th>\n      <th>Sales.past.5.Y<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[3,9]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+]
+
+---
+
+# Análisis técnico: Chevron
+
+
+&lt;img src="cvx.png" width="100%" /&gt;
+
+
+---
+
+# Indicadores: volatilidad
+
+
+`$$Desvío Estándar = \sqrt{\frac{1}{N} \sum_{i} (Precio_{i}-MediaMóvil_i)^2}$$`
+
+
+
+
+&lt;img src="presentacion_files/figure-html/unnamed-chunk-8-1.png" width="100%" /&gt;
+
+---
+
+# Indicadores de volatilidad
+
+-   Bandas de Bollinger: 
+
+$$BB = MediaMóvil \pm 2 * Desvío Estándar $$
+
+&lt;img src="cvx_bb.png" width="100%" /&gt;
+
+
+-   VENDER!
+
+
+---
+
+
+&lt;img src="presentacion_files/figure-html/unnamed-chunk-10-1.png" width="100%" /&gt;
+
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
